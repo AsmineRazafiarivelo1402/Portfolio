@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faEnvelope, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,6 +12,11 @@ const navLinkStyles = ({ isActive }) => ({
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation(); // pour fermer le menu mobile après navigation
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
 
   const navLinks = [
     { path: "/", name: "Home" },
@@ -79,7 +84,6 @@ export default function Navbar() {
               to={link.path}
               style={navLinkStyles}
               className="block relative group"
-              onClick={() => setMenuOpen(false)} // fermer le menu après clique
             >
               <span className="relative z-10 group-hover:text-[#18F3E1] transition-colors duration-300">
                 {link.name}
