@@ -1,109 +1,83 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faEnvelope, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHouse,
+  faUser,
+  faFolderOpen,
+  faCommentDots,
+  faBlog,
+  faEnvelope,
+  faBars,
+  faXmark,
+  faPhone,
+} from "@fortawesome/free-solid-svg-icons";
 
-const navLinkStyles = ({ isActive }) => ({
-  color: isActive ? '#45b3db' : 'white',
-  borderBottom: isActive ? '2px solid #45b3db' : '2px solid transparent',
-  padding: '5px 0',
-  transition: 'all 0.3s ease',
-});
-
-export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation(); // pour fermer le menu mobile après navigation
+export default function Sidebar() {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    setMenuOpen(false);
+    setOpen(false);
   }, [location]);
 
   const navLinks = [
-    { path: "/", name: "Home" },
-    { path: "/about", name: "About" },
-    { path: "/project", name: "Project" },
-    { path: "/testimonials", name: "Testimonials" },
-    { path: "/blog", name: "Blog" },
-    { path: "/contact", name: "Contact" },
+    { path: "/", name: "Home", icon: faHouse },
+    { path: "/about", name: "About", icon: faUser },
+    { path: "/project", name: "Projects", icon: faFolderOpen },
+    { path: "/testimonials", name: "Testimonials", icon: faCommentDots },
+    { path: "/blog", name: "Blog", icon: faBlog },
+    { path: "/contact", name: "Contact", icon: faEnvelope },
   ];
 
   return (
-    <nav className="bg-[#2b2b2b] text-white shadow-md fixed w-full z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <>
+      {/* Mobile Toggle Button */}
+      <button
+        className="md:hidden fixed top-4 left-4 z-50 text-white bg-[#2b2b2b] p-2 rounded"
+        onClick={() => setOpen(!open)}
+      >
+        <FontAwesomeIcon icon={open ? faXmark : faBars} size="lg" />
+      </button>
 
-        {/* Logo / Nom */}
-        <NavLink
-          to="/"
-          className="text-xl font-semibold tracking-wide hover:text-gray-300 transition"
-        >
-          Asmine RAZAFIARIVELO
-        </NavLink>
+      {/* Sidebar */}
+      <aside
+  className={`
+  fixed py-5 top-1/2 right-4 
+  min-h-48 w-24 bg-[#2b2b2b] text-white shadow-lg rounded-2xl
+  -translate-y-1/2
+  transition-all duration-300 z-40
+  
+  ${open ? "translate-x-0" : "translate-x-full"}
+  
+  md:translate-x-0
+`}
+>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8">
+
+       
+
+        <nav className="flex flex-col p-4 space-y-4">
           {navLinks.map((link, i) => (
             <NavLink
               key={i}
               to={link.path}
-              style={navLinkStyles}
-              className="relative group"
+              className={({ isActive }) =>
+                `flex items-center space-x-3 px-4 py-2 rounded transition ${
+                  isActive
+                    ? "bg-[#18F3E1] text-black"
+                    : "hover:bg-[#3a3a3a]"
+                }`
+              }
             >
-              <span className="relative z-10 group-hover:text-[#18F3E1] transition-colors duration-300">
-                {link.name}
-              </span>
-              <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#18F3E1] transition-all duration-300 group-hover:w-full"></span>
+              <FontAwesomeIcon icon={link.icon} />
+            
             </NavLink>
           ))}
+        </nav>
 
-          {/* Icons */}
-          <div className="flex items-center space-x-4 ml-4">
-            <a href="tel:+261XXXXXXXX" className="hover:text-[#18F3E1] transition">
-              <FontAwesomeIcon icon={faPhone} />
-            </a>
-
-            <a href="mailto:example@email.com" className="hover:text-[#18F3E1] transition">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-          </div>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="md:hidden flex items-center">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            <FontAwesomeIcon icon={menuOpen ? faXmark : faBars} size="2x" />
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-[#2b2b2b] px-6 pb-4 space-y-4">
-          {navLinks.map((link, i) => (
-            <NavLink
-              key={i}
-              to={link.path}
-              style={navLinkStyles}
-              className="block relative group"
-            >
-              <span className="relative z-10 group-hover:text-[#18F3E1] transition-colors duration-300">
-                {link.name}
-              </span>
-              <span className="absolute left-0 -bottom-0.5 w-0 h-0.5 bg-[#18F3E1] transition-all duration-300 group-hover:w-full"></span>
-            </NavLink>
-          ))}
-
-          {/* Icons Mobile */}
-          <div className="flex items-center space-x-4 mt-2">
-            <a href="tel:+261XXXXXXXX" className="hover:text-[#18F3E1] transition">
-              <FontAwesomeIcon icon={faPhone} />
-            </a>
-
-            <a href="mailto:example@email.com" className="hover:text-[#18F3E1] transition">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-          </div>
-        </div>
-      )}
-    </nav>
+       
+      </aside>
+    </>
   );
 }
