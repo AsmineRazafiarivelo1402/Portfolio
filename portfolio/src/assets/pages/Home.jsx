@@ -86,7 +86,7 @@ export default function Home() {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="flex-1 flex justify-center">
+      <div className="flex-1 flex ">
         <img
           src={logo}
           alt="asmine_profil"
