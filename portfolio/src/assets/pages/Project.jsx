@@ -6,7 +6,7 @@ import logo from "../images/logo.png";
 export default function Project() {
   return (
     <>
-      <div className="max-w-6xl mx-auto  py-10">
+      <div className="max-w-6xl mx-auto px-5 py-10">
         {/* Header */}
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold text-white mb-4">
           Project <span className="text-[#139acf] text-5xl sm:text-6xl md:text-6xl">.</span>

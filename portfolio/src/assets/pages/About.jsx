@@ -13,8 +13,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
-
-
 import logo from "../images/logo.png";
 export default function About() {
   return (
@@ -181,66 +179,59 @@ export default function About() {
                   <div className="flex flex-col gap-3">
                     <h1 className="text-[#f6f6f6] text-[15px]">Tools</h1>
                     <div className="flex gap-1 flex-wrap">
-                     
-{/* Postman */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
+                      {/* Postman */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
   border border-orange-500 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faPaperPlane}
-    className="text-orange-500 text-3xl p-1/2"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
+                      >
+                        <FontAwesomeIcon
+                          icon={faPaperPlane}
+                          className="text-orange-500 text-3xl p-1/2"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
     bg-gray-900 text-white text-xs px-2 py-1 rounded 
     opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    Postman
-  </span>
-</div>
+                        >
+                          Postman
+                        </span>
+                      </div>
 
-      {/* Git */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
+                      {/* Git */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
   border border-red-600 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faGit}
-    className="text-red-600 text-4xl p-1/2"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
+                      >
+                        <FontAwesomeIcon
+                          icon={faGit}
+                          className="text-red-600 text-4xl p-1/2"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
     bg-gray-900 text-white text-xs px-2 py-1 rounded 
     opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    Git
-  </span>
-</div>
-             
-{/* GitHub */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
+                        >
+                          Git
+                        </span>
+                      </div>
+
+                      {/* GitHub */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
   border border-gray-300 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faGithub}
-    className="text-gray-300 text-4xl p-1/2"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
+                      >
+                        <FontAwesomeIcon
+                          icon={faGithub}
+                          className="text-gray-300 text-4xl p-1/2"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
     bg-gray-900 text-white text-xs px-2 py-1 rounded 
     opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    GitHub
-  </span>
-</div>
-
-               
-
-                  
-
-                
+                        >
+                          GitHub
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -284,59 +275,58 @@ export default function About() {
                           NodeJS
                         </span>
                       </div>
-                   
-                      {/* ExpressJS */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
-  border border-gray-400 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faNodeJs}
-    className="text-gray-400 text-4xl"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
-    bg-gray-900 text-white text-xs px-2 py-1 rounded 
-    opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    ExpressJS
-  </span>
-</div>
-{/* Python */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
-  border border-yellow-500 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faPython}
-    className="text-yellow-500 text-4xl"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
-    bg-gray-900 text-white text-xs px-2 py-1 rounded 
-    opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    Python
-  </span>
-</div>
-{/* PostgreSQL */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
-  border border-blue-500 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faDatabase}
-    className="text-blue-500 text-4xl"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
-    bg-gray-900 text-white text-xs px-2 py-1 rounded 
-    opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    PostgreSQL
-  </span>
-</div>
 
+                      {/* ExpressJS */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
+  border border-gray-400 bg-black/20 flex justify-center items-center"
+                      >
+                        <FontAwesomeIcon
+                          icon={faNodeJs}
+                          className="text-gray-400 text-4xl"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
+    bg-gray-900 text-white text-xs px-2 py-1 rounded 
+    opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          ExpressJS
+                        </span>
+                      </div>
+                      {/* Python */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
+  border border-yellow-500 bg-black/20 flex justify-center items-center"
+                      >
+                        <FontAwesomeIcon
+                          icon={faPython}
+                          className="text-yellow-500 text-4xl"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
+    bg-gray-900 text-white text-xs px-2 py-1 rounded 
+    opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          Python
+                        </span>
+                      </div>
+                      {/* PostgreSQL */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
+  border border-blue-500 bg-black/20 flex justify-center items-center"
+                      >
+                        <FontAwesomeIcon
+                          icon={faDatabase}
+                          className="text-blue-500 text-4xl"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
+    bg-gray-900 text-white text-xs px-2 py-1 rounded 
+    opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                          PostgreSQL
+                        </span>
+                      </div>
 
                       {/* Java */}
                       <div
@@ -361,24 +351,23 @@ export default function About() {
                   <div className="flex flex-col gap-3">
                     <h1 className="text-[#f6f6f6] text-[15px]">UI Design</h1>
                     <div className="flex gap-1 flex-wrap">
-                    {/* Figma */}
-<div
-  className="relative group cursor-pointer p-1 rounded-lg 
+                      {/* Figma */}
+                      <div
+                        className="relative group cursor-pointer p-1 rounded-lg 
   border border-pink-500 bg-black/20 flex justify-center items-center"
->
-  <FontAwesomeIcon
-    icon={faFigma}
-    className="text-pink-500 text-4xl"
-  />
-  <span
-    className="absolute -top-8 left-1/2 -translate-x-1/2 
+                      >
+                        <FontAwesomeIcon
+                          icon={faFigma}
+                          className="text-pink-500 text-4xl"
+                        />
+                        <span
+                          className="absolute -top-8 left-1/2 -translate-x-1/2 
     bg-gray-900 text-white text-xs px-2 py-1 rounded 
     opacity-0 group-hover:opacity-100 transition-opacity"
-  >
-    Figma
-  </span>
-</div>
-
+                        >
+                          Figma
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -396,7 +385,6 @@ export default function About() {
               <div className="flex gap-4">
                 <h1 className="border h-45 w-[4px] bg-[#858581] rounded-full border-[#858581]"></h1>
                 <div className="border-bg-red-200 rounded-lg w-64 h-48 bg-red-200   sm:w-96 ">
-
                   <div className="flex justify-between px-2 h-1/2  items-center text-[16px]">
                     <h1 className="text-[#1214b6] ">Assistant Productory</h1>
                     <p>Oct 2024</p>
