@@ -6,7 +6,7 @@ import logo from "../images/logo.png";
 export default function Project() {
   return (
     <>
-      <div className="max-w-6xl mx-auto px-6 py-10">
+      <div className="max-w-6xl mx-auto  py-10">
         {/* Header */}
         <h1 className="text-4xl sm:text-5xl md:text-5xl font-bold text-white mb-4">
           Project <span className="text-[#139acf] text-5xl sm:text-6xl md:text-6xl">.</span>
@@ -50,22 +50,32 @@ export default function Project() {
             <div className="flex flex-wrap gap-2 text-[#CEE2DC] mt-2">
               <p className="border-2 px-2 border-[#70867f] bg-[#70867f] rounded-lg">React</p>
               <p className="border-2 px-2 border-[#70867f] bg-[#70867f] rounded-lg">Tailwindcss</p>
+              
             </div>
 
             <div className="flex flex-wrap gap-4 pt-3">
-              <button type="button"
-                className="flex items-center gap-2 text-white border border-[#f6f6f6] px-4 sm:px-6 py-2 rounded-lg hover:bg-[#139acf] hover:border-none transition-colors duration-300"
-              >
-                <FontAwesomeIcon icon={faUpRightFromSquare} />
-                Live Demo
-              </button>
+            <a
+  href="https://github.com/AsmineRazafiarivelo1402/Portfolio.git"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-white border border-[#f6f6f6] px-4 sm:px-6 py-2 rounded-lg 
+  hover:bg-[#139acf] hover:border-none 
+  transition-all duration-300 hover:scale-105"
+>
+  <FontAwesomeIcon icon={faUpRightFromSquare} />
+  Live Demo
+</a>
 
-              <button type="button"
-                className="flex items-center gap-2 text-white border border-[#f6f6f6] px-4 sm:px-6 py-2 rounded-lg hover:bg-[#139acf] hover:border-none transition-colors duration-300"
-              >
-                <FontAwesomeIcon icon={faGithub} />
-                View Code
-              </button>
+             <a
+  href="https://github.com/AsmineRazafiarivelo1402/Portfolio.git"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-white border border-[#f6f6f6] px-4 sm:px-6 py-2 rounded-lg hover:bg-[#139acf] hover:border-none transition-colors duration-300"
+>
+  <FontAwesomeIcon icon={faGithub} />
+  View Code
+</a>
+
             </div>
           </div>
         </div>
