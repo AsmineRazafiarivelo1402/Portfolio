@@ -8,36 +8,31 @@ export default function Home() {
                  md:flex-row
                  items-center
                  lg:py-40
-                
                  px-6 sm:px-10 md:px-20
                  bg-[#1e1e1e]
-                 gap-10"
+                 gap-10 font-body"
     >
 
       {/* LEFT SIDE */}
       <div className="flex-1 flex justify-center text-center md:text-left ">
         <div className="space-y-4 max-w-xl ">
 
-          <p className="text-white uppercase tracking-wide text-sm sm:text-base">
+          <p className="text-white uppercase tracking-wide text-sm sm:text-base font-body">
             Hi there, welcome to my site
           </p>
 
-          <p className="text-white text-xl sm:text-2xl">
+          <p className="text-white text-xl sm:text-2xl font-body">
             I'm{" "}
             <span className="text-[#E29D1E] px-2 py-1 rounded
-                             text-2xl sm:text-4xl font-semibold inline-block">
+                             text-2xl sm:text-4xl font-semibold inline-block font-title">
               Asmine RAZAFIARIVELO
             </span>
           </p>
 
           <p className="text-[#09EDE9] font-medium
-                        text-2xl sm:text-4xl">
-            Software Quality Assurance
-          </p>
-
-          <p className="text-white text-2xl sm:text-4xl">
-            <span className="text-[#E29D1E]">&</span>{" "}
-            Testing Specialization
+                        text-2xl sm:text-4xl font-title">
+                          Full-Stack Developer Student
+            
           </p>
 
           <hr className="w-16 md:w-[20%] border-[#E29D1E] mx-auto md:mx-0" />
@@ -48,7 +43,7 @@ export default function Home() {
                        hover:from-[#0eeae7] hover:to-[#E29D1E]
                        transition-all duration-300
                        font-medium
-                       text-xl sm:text-3xl"
+                       text-xl sm:text-3xl font-title"
           >
             Let’s build better software together.
           </p>
@@ -64,7 +59,7 @@ export default function Home() {
               className="flex items-center gap-2 border border-[#E29D1E]
                          bg-[#E29D1E]/20 text-white
                          px-6 py-2 rounded
-                         hover:translate-x-1 transition-all duration-300"
+                         hover:translate-x-1 transition-all duration-300 font-body"
             >
               <FontAwesomeIcon icon={faDownload} />
               Download CV
@@ -75,7 +70,7 @@ export default function Home() {
               className="flex items-center gap-2 border border-[#0eeae7]
                          bg-[#0eeae7]/20 text-white
                          px-6 py-2 rounded
-                         hover:translate-x-1 transition-all duration-300"
+                         hover:translate-x-1 transition-all duration-300 font-body"
             >
               Explore
               <FontAwesomeIcon icon={faArrowRight} />
@@ -91,7 +86,6 @@ export default function Home() {
           src={logo}
           alt="asmine_profil"
           className="
-            
             w-24 h-24
             sm:w-64 sm:h-64
             md:w-80 md:h-80
