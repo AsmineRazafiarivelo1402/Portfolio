@@ -25,8 +25,8 @@ export default function Sidebar() {
     { path: "/", name: "Home", icon: faHouse },
     { path: "/about", name: "About", icon: faUser },
     { path: "/project", name: "Projects", icon: faFolderOpen },
-    { path: "/testimonials", name: "Testimonials", icon: faCommentDots },
-    { path: "/blog", name: "Blog", icon: faBlog },
+    // { path: "/testimonials", name: "Testimonials", icon: faCommentDots },
+    // { path: "/blog", name: "Blog", icon: faBlog },
     { path: "/contact", name: "Contact", icon: faEnvelope },
   ];
 
