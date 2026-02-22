@@ -155,24 +155,6 @@ export default function About() {
                           Tailwind
                         </span>
                       </div>
-
-                      {/* Java */}
-                      <div
-                        className="relative group cursor-pointer p-1 rounded-lg 
-                      border border-red-500 bg-black/20 flex justify-center items-center"
-                      >
-                        <FontAwesomeIcon
-                          icon={faJava}
-                          className="text-red-500 text-4xl"
-                        />
-                        <span
-                          className="absolute -top-8 left-1/2 -translate-x-1/2 
-                         bg-gray-900 text-white text-xs px-2 py-1 rounded 
-                         opacity-0 group-hover:opacity-100 transition-opacity"
-                        >
-                          Java
-                        </span>
-                      </div>
                     </div>
                   </div>
                   {/* Tools */}
