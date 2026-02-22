@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
-import logo from "../images/logo.png";
+import logo from "../images/profil_about.png";
 export default function About() {
   return (
     <>

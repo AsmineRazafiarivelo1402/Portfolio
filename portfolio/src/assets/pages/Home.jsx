@@ -91,7 +91,8 @@ export default function Home() {
           src={logo}
           alt="asmine_profil"
           className="
-            w-48 h-48
+            
+            w-24 h-24
             sm:w-64 sm:h-64
             md:w-80 md:h-80
             object-cover

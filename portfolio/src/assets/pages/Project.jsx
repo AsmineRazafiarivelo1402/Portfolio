@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import logo from "../images/logo.png";
+import portfolio from "../images/as.png";
 
 export default function Project() {
   return (
@@ -33,9 +33,9 @@ export default function Project() {
           
           {/* Image */}
           <img 
-            src={logo} 
+            src={portfolio} 
             alt="project"  
-            className="w-full max-h-64 sm:max-h-72 rounded-t-lg object-cover"
+            className="w-full min-h-96 p-4 sm:max-h-72 rounded-t-lg object-cover "
           />
 
           {/* Card Content */}
