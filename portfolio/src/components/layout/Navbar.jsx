@@ -1,32 +1,22 @@
-import { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
   faUser,
   faFolderOpen,
-  faCommentDots,
-  faBlog,
   faEnvelope,
   faBars,
   faXmark,
- 
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Sidebar() {
+export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setOpen(false);
-  }, [location]);
 
   const navLinks = [
     { path: "/", name: "Home", icon: faHouse },
     { path: "/about", name: "About", icon: faUser },
     { path: "/project", name: "Projects", icon: faFolderOpen },
-    // { path: "/testimonials", name: "Testimonials", icon: faCommentDots },
-    // { path: "/blog", name: "Blog", icon: faBlog },
     { path: "/contact", name: "Contact", icon: faEnvelope },
   ];
 
@@ -44,7 +34,7 @@ export default function Sidebar() {
       <aside
   className={`
   fixed py-5 top-1/2 right-4 
-  min-h-48 w-24 bg-[#2b2b2b] text-white shadow-lg rounded-2xl
+  min-h-[12rem] w-24 bg-[#2b2b2b] text-white shadow-lg rounded-2xl
   -translate-y-1/2
   transition-all duration-300 z-40
   
@@ -62,6 +52,7 @@ export default function Sidebar() {
             <NavLink
               key={i}
               to={link.path}
+              onClick={() => setOpen(false)}
               className={({ isActive }) =>
                 `flex items-center space-x-3 px-4 py-2 rounded transition ${
                   isActive

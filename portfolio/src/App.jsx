@@ -1,28 +1,84 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./assets/components/Navbar";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import Navbar from "./components/layout/Navbar";
+import PageWrapper from "./components/layout/PageWrapper";
+import Background from "./components/effects/Background";
+import CustomCursor from "./components/effects/CustomCursor";
 
-import Home from "./assets/pages/Home";
-import About from "./assets/pages/About";
-import Project from "./assets/pages/Project";
-import Testimonials from "./assets/pages/Testimonials";
-import Blog from "./assets/pages/Blog";
-import Contact from "./assets/pages/Contact";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Project from "./pages/Project";
+import Testimonials from "./pages/Testimonials";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <Home />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <PageWrapper>
+              <About />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/project"
+          element={
+            <PageWrapper>
+              <Project />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/testimonials"
+          element={
+            <PageWrapper>
+              <Testimonials />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <PageWrapper>
+              <Blog />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageWrapper>
+              <Contact />
+            </PageWrapper>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   return (
     <Router>
-      {/* Navbar doit être à l'intérieur du Router */}
+      <Background />
+      <CustomCursor />
       <Navbar />
-
-      <main className="min-h-screen bg-[#1e1e1e] pt-24"> {/* pt-24 pour navbar fixe */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/project" element={<Project />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+      <main className="relative z-10 min-h-screen pt-24">
+        <AnimatedRoutes />
       </main>
     </Router>
   );
