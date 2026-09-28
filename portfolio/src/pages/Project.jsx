@@ -3,13 +3,20 @@ import SectionTitle from "../components/ui/SectionTitle";
 import FilterButton from "../components/ui/FilterButton";
 import ProjectCard from "../components/ui/ProjectCard";
 import AnimatedSection from "../components/effects/AnimatedSection";
+import useFetch from "../hooks/useFetch";
 import { projects } from "../data/fallbackData";
+import { normalizeProject } from "../data/normalizers";
 
 export default function Project() {
   const [filter, setFilter] = useState("All");
-  const filters = ["All", ...new Set(projects.flatMap((project) => project.tags))];
-  const visibleProjects =
-    filter === "All" ? projects : projects.filter((project) => project.tags.includes(filter));
+  const { data } = useFetch("projects", projects);
+
+  const visibleProjects = data.map(normalizeProject);
+  const filters = ["All", ...new Set(visibleProjects.flatMap((project) => project.tags))];
+  const filteredProjects =
+    filter === "All"
+      ? visibleProjects
+      : visibleProjects.filter((project) => project.tags.includes(filter));
 
   return (
     <div className="max-w-6xl mx-auto px-5 py-10 font-body">
@@ -38,7 +45,7 @@ export default function Project() {
 
       {/* Projects Grid */}
       <AnimatedSection direction="up" delay={0.2} className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-        {visibleProjects.map((project) => (
+        {filteredProjects.map((project) => (
           <ProjectCard key={project.title} {...project} />
         ))}
       </AnimatedSection>
