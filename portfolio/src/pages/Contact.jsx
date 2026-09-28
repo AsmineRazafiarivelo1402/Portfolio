@@ -5,12 +5,34 @@ import SectionTitle from "../components/ui/SectionTitle";
 import SocialIcon from "../components/ui/SocialIcon";
 import Button from "../components/ui/Button";
 import AnimatedSection from "../components/effects/AnimatedSection";
+import useFetch from "../hooks/useFetch";
 import { socialLinks, email } from "../data/fallbackData";
+import { normalizeContact } from "../data/normalizers";
+
+const fallbackContacts = [
+  ...socialLinks.map((social) => ({
+    type: "social",
+    label: social.label,
+    value: social.href,
+    icon_name: social.label.toLowerCase(),
+  })),
+  {
+    type: "email",
+    label: "Email",
+    value: `mailto:${email}`,
+    icon_name: "envelope",
+  },
+];
 
 const initialForm = { name: "", email: "", subject: "", message: "" };
 
 export default function Contact() {
   const [form, setForm] = useState(initialForm);
+  const { data } = useFetch("contacts", fallbackContacts);
+
+  const contacts = data.map(normalizeContact);
+  const socials = contacts.filter((contact) => contact.type === "social");
+  const emailContact = contacts.find((contact) => contact.type === "email");
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -143,7 +165,7 @@ export default function Contact() {
           </h1>
 
           <div className="flex gap-5 py-4">
-            {socialLinks.map((social) => (
+            {socials.map((social) => (
               <SocialIcon key={social.label} {...social} />
             ))}
           </div>
@@ -152,8 +174,11 @@ export default function Contact() {
 
           <p className="flex gap-3 items-center">
             <FontAwesomeIcon icon={faEnvelope} className="text-white text-2xl" />
-            <a href={`mailto:${email}`} className="text-white text-xl">
-              {email}
+            <a
+              href={emailContact?.href || `mailto:${email}`}
+              className="text-white text-xl"
+            >
+              {emailContact?.label === "Email" ? emailContact.href.replace("mailto:", "") : email}
             </a>
           </p>
         </AnimatedSection>

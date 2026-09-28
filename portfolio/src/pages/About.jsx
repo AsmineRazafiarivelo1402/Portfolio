@@ -3,10 +3,21 @@ import TechCategory from "../components/ui/TechCategory";
 import TimelineSection from "../components/ui/TimelineSection";
 import AnimatedSection from "../components/effects/AnimatedSection";
 import Button from "../components/ui/Button";
+import useFetch from "../hooks/useFetch";
 import { profile, bio, techCategories, experiences, educations } from "../data/fallbackData";
+import { normalizeTechnology, categoryTitles } from "../data/normalizers";
 import profileImage from "../assets/images/profil_about.png";
 
 export default function About() {
+  const { data: techGroups } = useFetch("technologies", techCategories);
+  const { data: experiencesData } = useFetch("experiences", experiences);
+  const { data: educationsData } = useFetch("educations", educations);
+
+  const normalizedGroups = techGroups.map((group) => ({
+    title: categoryTitles[group.category] || group.title || group.category,
+    technologies: group.technologies.map(normalizeTechnology),
+  }));
+
   return (
     <div className="grid grid-cols-1 mx-auto max-w-6xl px-6 py-10 gap-6 font-body">
       <AnimatedSection direction="up">
@@ -40,13 +51,13 @@ export default function About() {
 
             <div className="flex flex-col lg:flex-row gap-5">
               <div className="flex flex-col gap-3">
-                <TechCategory {...techCategories[0]} />
-                <TechCategory {...techCategories[1]} />
+                <TechCategory {...normalizedGroups[0]} />
+                <TechCategory {...normalizedGroups[1]} />
               </div>
 
               <div className="flex flex-col gap-3">
-                <TechCategory {...techCategories[2]} />
-                <TechCategory {...techCategories[3]} />
+                <TechCategory {...normalizedGroups[2]} />
+                <TechCategory {...normalizedGroups[3]} />
               </div>
             </div>
           </AnimatedSection>
@@ -55,11 +66,11 @@ export default function About() {
 
       <div className="md:flex md:flex-row md:gap-10">
         <AnimatedSection direction="left">
-          <TimelineSection title="Experience" items={experiences} />
+          <TimelineSection title="Experience" items={experiencesData} />
         </AnimatedSection>
 
         <AnimatedSection direction="right" delay={0.15}>
-          <TimelineSection title="Education" items={educations} />
+          <TimelineSection title="Education" items={educationsData} />
         </AnimatedSection>
       </div>
     </div>
